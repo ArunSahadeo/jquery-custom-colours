@@ -4,7 +4,12 @@
 		burgundy: {
 			hex: '#4d0024',
 			rgb: 'rgb(77, 0, 36)'
-		}
+        },
+
+        mauve: {
+            hex: '#6b3f5a',
+            rgb: 'rgb(107, 63, 90)'
+        }
 	};
 
 	$.fn.customColour = function(options)
@@ -17,7 +22,7 @@
 
 		var settings = $.extend( {}, defaults, options);
 
-		return this.each(function()
+		return $(this).each(function()
 		{
 			var colourInput = String(settings.colour).toLowerCase();
 			
@@ -37,14 +42,14 @@
 
 			if (settings.property === "background")
 			{
-				$(this).css({
+				return $(this).css({
 					background: colour
 				});
 			}
 
 			else if (settings.property === "color")
 			{
-				$(this).css({
+				return $(this).css({
 					color: colour
 				});
 			}
@@ -52,7 +57,7 @@
 			else if (settings.property === "backgroundColor")
 			{
 
-				$(this).css({
+				return $(this).css({
 					backgroundColor: colour 
 				});
 			}
